@@ -4,20 +4,20 @@ class App < Sinatra::Base
 
   get "/" do
     erb :new
-  end 
+  end
 
-  post '/student' do 
+  post '/student' do
 
     student = Student.new(params[:student])
 
     params[:student][:courses].each do |details|
       Course.new(details)
-    end 
+    end
 
-    @course = Course.all 
+    @course = Course.all
+    erb :student
+  end
 
-  end 
-  
 
 
 end
